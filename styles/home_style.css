@@ -3,12 +3,21 @@ h1 {
     padding-left: 15px;
 }
 
+h2 {
+    float: left;
+    width: 50%;
+}
+
 h3 {
     float: left;
     width: 35%;
     margin-top: 12px;
     margin-bottom: 0px;
     margin-left: 10px;
+}
+
+hr {
+    width: 100%;
 }
 
 .list {
