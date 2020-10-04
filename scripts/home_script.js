@@ -4,12 +4,17 @@ document.addEventListener('click', function (e) {
 
     // which button was clicked?
     var target_elem = e.target;
+    console.log(target_elem);
+    
     // get the amount of calories for each item 
     var cal_list = document.getElementsByClassName("item_cal");
     var counter;
 
     for (let elem of cal_list) {
-        console.log(parseInt(elem.textContent));
+        /*if (elem.id.startsWith()) {
+            console.log(parseInt(elem.textContent));
+        }
+        */
     }
     // in the box with this button
     //
