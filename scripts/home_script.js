@@ -5,6 +5,7 @@ document.addEventListener('click', function (event) {
     // which button # was clicked?
     var target_elem = event.target;
     var target_num = target_elem.id.split('_')[2];
+    console.log("Button " + target_num + " clicked");
     
     // get the amount of calories for each item 
     var cal_list = document.getElementsByClassName("item_cal");
@@ -19,5 +20,8 @@ document.addEventListener('click', function (event) {
         }
     }
     console.log(daily_cal_count);
-    // display the running total nicely
+    // output the calorie amount for specific day
+    output_heading_id = "h2" + target_num;
+    console.log("outputting to: " + output_heading_id);
+    document.getElementById(output_heading_id).textContent = daily_cal_count + " Calories";
 }, false);
