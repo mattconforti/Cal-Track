@@ -8,17 +8,16 @@ document.addEventListener('click', function (event) {
     
     // get the amount of calories for each item 
     var cal_list = document.getElementsByClassName("item_cal");
-    var counter;
+    var daily_cal_count = 0;
 
     for (let elem of cal_list) {
-        console.log(elem); // need to make each one 
-        // have an ID so we can check to make sure
-        // the we are getting the correct numbers
-        // (associated with the correct button click)
+        // if the element matches our target button
+        if (elem.id.endsWith(target_num)) {
+            // parse it to get the calorie amount
+            // and add the amount to the running total
+            daily_cal_count += parseInt(elem.textContent);
+        }
     }
-    // in the box with this button
-    //
-    // add this amount to a running total
-    //
+    console.log(daily_cal_count);
     // display the running total nicely
 }, false);
