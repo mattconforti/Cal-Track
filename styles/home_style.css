@@ -5,7 +5,15 @@ h1 {
 
 h2 {
     float: left;
-    width: 50%;
+    width: 45%;
+}
+
+.cal_output {
+    float: left;
+    width: 45%;
+    border-radius: 50%;
+    /* need this for red circle animation ^^ */
+    margin-left: 25px;
 }
 
 h3 {

@@ -23,14 +23,19 @@ document.addEventListener('click', function (event) {
     // output the calorie amount for specific day
     output_heading_id = "h2" + target_num;
     console.log("outputting to: " + output_heading_id);
-    document.getElementById(output_heading_id).textContent = daily_cal_count + " Calories";
+    var output_heading = document.getElementById(output_heading_id);
+    output_heading.textContent = daily_cal_count + " Calories";
     // animate this going onto the screen
     // (grows big then small or red circle around)
 
-    // ^^ quickfix - make red underline appear
+    // ^^ quickfix - red circle around using boxShadow
+    // NEED BOX-SHADOW TO HAVE MORE PADDING BTW TEXT
 
     setTimeout(function() {
-        document.getElementById(output_heading_id).style.textDecoration = "underline";
-        document.getElementById(output_heading_id).style.textDecorationColor = "red";
+        output_heading.style.boxShadow = "0 0 0 2pt red";
     }, 1250);
+
+    setTimeout(function() {
+        output_heading.style.boxShadow = "initial";
+    }, 3000);
 }, false);
