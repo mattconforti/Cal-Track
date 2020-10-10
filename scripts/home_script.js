@@ -8,7 +8,7 @@ document.addEventListener('blur', function(e) {
     console.log("Input: " + query_phrase);
 
     // API fetch based on content of text-input
-    const url = "https://nutritionix-api.p.rapidapi.com/v1_1/search/cheddar%2520cheese?fields=item_name%252Citem_id%252Cbrand_name%252Cnf_calories%252Cnf_total_fat";
+    const url = `https://nutritionix-api.p.rapidapi.com/v1_1/search/${query_phrase}?fields=item_name,nf_calories`;
     fetch(url, {
         "method": "GET",
         "headers": {
@@ -18,7 +18,8 @@ document.addEventListener('blur', function(e) {
     })
     .then(response => {
         // parse the response and output
-        console.log(response);
+        let json_resp = response.json();
+        console.log(json_resp);
     })
     .catch(err => {
         console.log(err);
