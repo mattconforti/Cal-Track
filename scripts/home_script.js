@@ -12,8 +12,8 @@ document.addEventListener('blur', function(e) {
     fetch(url, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-host": "nutritionix-api.p.rapidapi.com",
-            "x-rapidapi-key": "3683bd61dfmshd234785dbb9d5bep1253d9jsn5a556f7f2e21"
+            "x-rapidapi-host": config.api_host,
+            "x-rapidapi-key": config.api_key
         }
     })
     .then(response => {
