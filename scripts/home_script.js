@@ -1,4 +1,23 @@
-document.addEventListener('click', function (event) {
+document.addEventListener('blur', function(e) {
+    if (!e.target.matches('.food_input')) return;
+
+    var target_input_elem = e.target;
+    console.log(target_input_elem);
+
+    // API fetch based on content of text-input
+    // const url = "";
+    // fetch(url)
+    // .then()
+    // .then(function(){
+
+    // })
+    // catch(function(error) {
+    //     console.log(JSON.stringify(error));
+    // });
+
+}, true);
+
+document.addEventListener('click', function(event) {
     // If the clicked element doesn't have the right selector, bail
 	if (!event.target.matches('.calc_button')) return;
 
@@ -38,4 +57,4 @@ document.addEventListener('click', function (event) {
     setTimeout(function() {
         output_heading.style.boxShadow = "initial";
     }, 3000);
-}, false);
+}, false); // should this be true? true=capturing
