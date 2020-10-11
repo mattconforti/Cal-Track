@@ -2,9 +2,12 @@ document.addEventListener('blur', function(e) {
     if (!e.target.matches('.food_input')) return;
 
     // which input field was clicked out of?
-    var target_input_elem = e.target;
+    const target_input_elem = e.target;
+    const target_id = target_input_elem.id;
+    const id_match_list = target_id.split("in");
+
     // get the text content so we can search API
-    var query_phrase = target_input_elem.value;
+    const query_phrase = target_input_elem.value;
     console.log("Input: " + query_phrase);
 
     // API fetch based on content of text-input
@@ -21,7 +24,7 @@ document.addEventListener('blur', function(e) {
     .then(response => response.json())
     .then(responseJSON => {
         // save list of query matches
-        query_hits_arr = responseJSON['hits'];
+        const query_hits_arr = responseJSON['hits'];
         console.log(query_hits_arr);
         // see which match we want based on portion
 
@@ -32,6 +35,8 @@ document.addEventListener('blur', function(e) {
             cal_amt = Math.round(cal_amt);
         }
         console.log("Outputting: " + cal_amt + " Calories");
+        // use id_match_list to get the correct id for output
+        // const output_id = + "h3" + ;
     })
     .catch(err => {
         console.log(err);
@@ -43,13 +48,13 @@ document.addEventListener('click', function(event) {
 	if (!event.target.matches('.calc_button')) return;
 
     // which button # was clicked?
-    var target_elem = event.target;
-    var target_num = target_elem.id.split('_')[2];
+    const target_elem = event.target;
+    const target_num = target_elem.id.split('_')[2];
     console.log("Button " + target_num + " clicked");
     
     // get the amount of calories for each item 
-    var cal_list = document.getElementsByClassName("item_cal");
-    var daily_cal_count = 0;
+    const cal_list = document.getElementsByClassName("item_cal");
+    let daily_cal_count = 0;
 
     for (let elem of cal_list) {
         // if the element matches our target button
@@ -61,9 +66,9 @@ document.addEventListener('click', function(event) {
     }
     console.log(daily_cal_count);
     // output the calorie amount for specific day
-    output_heading_id = "h2" + target_num;
+    const output_heading_id = "h2" + target_num;
     console.log("outputting to: " + output_heading_id);
-    var output_heading = document.getElementById(output_heading_id);
+    let output_heading = document.getElementById(output_heading_id);
     output_heading.textContent = daily_cal_count + " Calories";
     // animate this going onto the screen
     // (grows big then small or red circle around)
