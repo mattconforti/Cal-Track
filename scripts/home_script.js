@@ -16,10 +16,22 @@ document.addEventListener('blur', function(e) {
             "x-rapidapi-key": config.api_key
         }
     })
-    .then(response => {
-        // parse the response and output
-        let json_resp = response.json();
-        console.log(json_resp);
+    // need .then() to get values of Promises returned
+    // arrow functions to parse data
+    .then(response => response.json())
+    .then(responseJSON => {
+        // save list of query matches
+        query_hits_arr = responseJSON['hits'];
+        console.log(query_hits_arr);
+        // see which match we want based on portion
+
+        // get calorie amount and output
+        let cal_amt = query_hits_arr[0]['fields']["nf_calories"];
+        // round the decimal if necessary
+        if (!Number.isInteger(cal_amt)) {
+            cal_amt = Math.round(cal_amt);
+        }
+        console.log("Outputting: " + cal_amt + " Calories");
     })
     .catch(err => {
         console.log(err);
