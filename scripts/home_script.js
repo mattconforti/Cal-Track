@@ -36,7 +36,8 @@ document.addEventListener('blur', function(e) {
         }
         console.log("Outputting: " + cal_amt + " Calories");
         // use id_match_list to get the correct id for output
-        // const output_id = + "h3" + ;
+        const output_id = id_match_list[1]+ "h3" + id_match_list[0];
+        console.log("Outputting to: " + output_id);
     })
     .catch(err => {
         console.log(err);
