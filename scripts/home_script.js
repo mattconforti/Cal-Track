@@ -38,6 +38,9 @@ document.addEventListener('blur', function(e) {
         // use id_match_list to get the correct id for output
         const output_id = id_match_list[1]+ "h3" + id_match_list[0];
         console.log("Outputting to: " + output_id);
+        // output to correct heading
+        let calorie_amt_heading = document.getElementById(output_id);
+        calorie_amt_heading.textContent = cal_amt + " Calories";
     })
     .catch(err => {
         console.log(err);
