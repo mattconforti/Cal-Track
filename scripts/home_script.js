@@ -38,6 +38,8 @@ document.addEventListener('blur', function(e) {
         // use id_match_list to get the correct id for output
         const output_id = id_match_list[1]+ "h3" + id_match_list[0];
         console.log("Outputting to: " + output_id);
+        
+        // TODO - green checkmark animation here if output is ready (valid input) and found search results
         // output to correct heading
         let calorie_amt_heading = document.getElementById(output_id);
         calorie_amt_heading.textContent = cal_amt + " Calories";
@@ -88,3 +90,13 @@ document.addEventListener('click', function(event) {
         output_heading.style.boxShadow = "initial";
     }, 3000);
 }, false); // should this be true? true=capturing
+
+document.addEventListener('click', function(ev) {
+    if (!ev.target.matches('.clear_button')) return;
+
+    const target_clear_button = ev.target;
+    const target_clear_button_id = target_clear_button.id;
+    const target_clear_num = target_clear_button_id.split('_')[2];
+    console.log(target_clear_num);
+    // TODO - clear all fields and calorie labels associated with button
+}, false);
