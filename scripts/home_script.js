@@ -97,14 +97,14 @@ document.addEventListener('click', function(ev) {
     const target_clear_button = ev.target;
     const target_clear_button_id = target_clear_button.id;
     const target_clear_num = target_clear_button_id.split('_')[2];
-    console.log(target_clear_num);
-    // TODO - clear all fields and calorie labels associated with button
-    let field_list = document.getElementsByClassName('.food_input');
-    for(let el of field_list) {
-        // if the field is not associated with specific button (ie. same number),
-        // remove it from the list
-        // else
-        // el.value = "";
+
+    // TODO - clear all calorie labels associated with button
+    let field_list = document.getElementsByClassName('food_input');
+    for (let el of field_list) {
+        // if the element is associated with this specific clear button
+        if (el.id.startsWith(target_clear_num)) {
+            el.value = "";
+        }
     }
 
     // get a list of calorie headings and set textContent to ""
