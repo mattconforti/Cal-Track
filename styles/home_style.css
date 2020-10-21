@@ -43,16 +43,19 @@ hr {
     margin-top: 27px;
     margin-bottom: -5px;
     margin-left: 2px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1275em;
     text-decoration: underline;
 }
 
-#label11, #label21, #label31 {
+#label11, #label21, #label31, #label41, #label51, #label61, #label71 {
     margin-top: 12px;
 }
 
 input[type="text"] {
     float: left;
     width: 60%;
+    font-family: 'Roboto', sans-serif;
     font-size: 1em;
     border: 0;
     border-bottom: 2px solid green;
