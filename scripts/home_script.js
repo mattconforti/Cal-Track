@@ -48,6 +48,10 @@ document.addEventListener('blur', function(e) {
     .catch(err => {
         console.log(err);
     });
+
+    // open new window here to have user select correct item
+    // window.open()
+
 }, true);
 
 // ADD BUTTON CLICK EVENT
