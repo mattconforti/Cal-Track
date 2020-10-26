@@ -50,7 +50,7 @@ document.addEventListener('blur', function(e) {
     });
 
     // open new window here to have user select correct item
-    window.open("html/search_results.html","Results","width=300,height=100,left=125,top=250,toolbar=0,status=0,");
+    window.open("html/search_results.html","Results","width=317,height=200,left=75,top=250,toolbar=0,status=0,");
 
 }, true);
 
