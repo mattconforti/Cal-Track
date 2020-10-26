@@ -10,6 +10,7 @@ document.addEventListener('blur', function(e) {
     // get the text content so we can search API
     const query_phrase = target_input_elem.value;
     console.log("Input: " + query_phrase);
+    // TODO - check if the input is valid (not empty string, not malicious)
 
     // API fetch based on content of text-input
     const url = `https://nutritionix-api.p.rapidapi.com/v1_1/search/${query_phrase}?fields=item_name,nf_calories`;
@@ -51,6 +52,8 @@ document.addEventListener('blur', function(e) {
 
     // open new window here to have user select correct item
     window.open("html/search_results.html","Results","width=317,height=200,left=75,top=250,toolbar=0,status=0,");
+
+    // TODO - close the window after selection is made and output
 
 }, true);
 
