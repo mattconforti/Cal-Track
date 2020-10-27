@@ -28,7 +28,12 @@ document.addEventListener('blur', function(e) {
         // save list of query matches
         const query_hits_arr = responseJSON['hits'];
         console.log(query_hits_arr);
-        // see which match we want based on portion
+
+        // see which match we want
+
+        // get results grid items
+        let grid_items = document.getElementsByClassName('grid_item');
+        console.log(grid_items);
 
         // get calorie amount and output
         let cal_amt = query_hits_arr[0]['fields']["nf_calories"];
