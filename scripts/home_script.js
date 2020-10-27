@@ -31,9 +31,17 @@ document.addEventListener('blur', function(e) {
 
         // see which match we want
 
+        // open new window here to have user select correct item
+        window.open("html/search_results.html","Results","width=317,height=200,left=75,top=250,toolbar=0,status=0,");
+
+        // TODO - close the window after selection is made and output
+
         // get results grid items
         let grid_items = document.getElementsByClassName('grid_item');
-        console.log(grid_items);
+        console.log(document.title);
+        // ERROR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // Cal-Track page still loaded into DOM!!!
+        // even tho new page is loaded
 
         // get calorie amount and output
         let cal_amt = query_hits_arr[0]['fields']["nf_calories"];
@@ -54,12 +62,6 @@ document.addEventListener('blur', function(e) {
     .catch(err => {
         console.log(err);
     });
-
-    // open new window here to have user select correct item
-    window.open("html/search_results.html","Results","width=317,height=200,left=75,top=250,toolbar=0,status=0,");
-
-    // TODO - close the window after selection is made and output
-
 }, true);
 
 // ADD BUTTON CLICK EVENT
