@@ -85,3 +85,7 @@ input[type="text"]:focus {
 .grid_item {
     border: 2px solid red;
 }
+
+.grid_item_content {
+    font-size: 1.125em;
+}
