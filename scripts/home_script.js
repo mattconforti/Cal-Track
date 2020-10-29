@@ -42,6 +42,7 @@ document.addEventListener('blur', function(e) {
         // ERROR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // Cal-Track page still loaded into DOM!!!
         // even tho new page is loaded
+        // POSSIBLE FIX - use window.onload = function() {}; to make sure the new DOM elements exist
 
         // get calorie amount and output
         let cal_amt = query_hits_arr[0]['fields']["nf_calories"];
