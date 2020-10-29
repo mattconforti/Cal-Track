@@ -32,7 +32,7 @@ document.addEventListener('blur', function(e) {
         // see which match we want
 
         // open new window here to have user select correct item
-        window.open("html/search_results.html","Results","width=317,height=200,left=75,top=250,toolbar=0,status=0,");
+        window.open("html/search_results.html","Results","width=500,height=350,left=75,top=250,toolbar=0,status=0,");
 
         // TODO - close the window after selection is made and output
 
