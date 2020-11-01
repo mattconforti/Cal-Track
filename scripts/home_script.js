@@ -33,18 +33,18 @@ document.addEventListener('blur', function(e) {
 
         // open new window here to have user select correct item
         var new_window = window.open("html/search_results.html","Results","width=500,height=350,left=75,top=250,toolbar=0,status=0,");
-        console.log(new_window.document.title);
-        // getting a 'cross origin frame' ERROR
-        // possible fix - move project to local server
+
+        new_window.onload = function() {
+            console.log(new_window.document.title);
+
+            // get results grid items
+            let grid_items = new_window.document.getElementsByClassName('grid_item');
+            for (let item of grid_items) {
+                console.log(item);
+            }
+        };
 
         // TODO - close the window after selection is made and output
-
-        // get results grid items
-        let grid_items = document.getElementsByClassName('grid_item');
-        // ERROR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // Cal-Track page still loaded into DOM!!!
-        // even tho new page is loaded
-        // POSSIBLE FIX - use window.onload = function() {}; to make sure the new DOM elements exist
 
         // get calorie amount and output
         let cal_amt = query_hits_arr[0]['fields']["nf_calories"];
