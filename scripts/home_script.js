@@ -34,6 +34,8 @@ document.addEventListener('blur', function(e) {
         // open new window here to have user select correct item
         var new_window = window.open("html/search_results.html","Results","width=500,height=350,left=75,top=250,toolbar=0,status=0,");
         console.log(new_window.document.title);
+        // getting a 'cross origin frame' ERROR
+        // possible fix - move project to local server
 
         // TODO - close the window after selection is made and output
 
