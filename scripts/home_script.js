@@ -37,9 +37,9 @@ document.addEventListener('blur', function(e) {
         new_window.onload = function() {
             console.log(new_window.document.title);
 
-            // get results grid items
-            let grid_items = new_window.document.getElementsByClassName('grid_item');
-            for (let item of grid_items) {
+            // get results-page grid items' contents
+            let grid_items_contents = new_window.document.getElementsByClassName('grid_item_content');
+            for (let item of grid_items_contents) {
                 console.log(item);
             }
         };
