@@ -38,12 +38,13 @@ document.addEventListener('blur', function(e) {
         new_window.onload = function() {
             console.log(new_window.document.title);
 
-            // get results-page grid items' contents
+            // get results-page grid items' contents and update it
             let grid_items_contents = new_window.document.getElementsByClassName('grid_item_content');
             counter = 0;
             for (let hit of query_hits_arr) {
-                grid_items_contents[counter].textContent = hit['fields']["item_name"];
-                counter += 3; // every 3rd grid_item_content is the item's name 
+                grid_items_contents[counter].textContent = "Item: " + hit['fields']["item_name"];
+                grid_items_contents[counter+1].textContent = "Calories: " + hit['fields']["nf_calories"];
+                counter += 2; // every other grid_item_content is the item's name 
             }
         };
 

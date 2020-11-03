@@ -87,5 +87,6 @@ input[type="text"]:focus {
 }
 
 .grid_item_content {
-    font-size: 1.125em;
+    float: none;
+    font-size: .75em;
 }
