@@ -27,6 +27,7 @@ document.addEventListener('blur', function(e) {
     .then(responseJSON => {
         // save list of query matches
         const query_hits_arr = responseJSON['hits'];
+        const query_hits_count = query_hits_arr.length;
         console.log(query_hits_arr);
 
         // see which match we want
@@ -39,8 +40,10 @@ document.addEventListener('blur', function(e) {
 
             // get results-page grid items' contents
             let grid_items_contents = new_window.document.getElementsByClassName('grid_item_content');
-            for (let item of grid_items_contents) {
-                console.log(item);
+            counter = 0;
+            for (let hit of query_hits_arr) {
+                grid_items_contents[counter].textContent = hit['fields']["item_name"];
+                counter += 3; // every 3rd grid_item_content is the item's name 
             }
         };
 
