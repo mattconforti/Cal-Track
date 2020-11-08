@@ -33,7 +33,7 @@ document.addEventListener('blur', function(e) {
         // see which match we want
 
         // open new window here to have user select correct item
-        var new_window = window.open("html/search_results.html","Results","width=500,height=350,left=75,top=250,toolbar=0,status=0,");
+        var new_window = window.open("html/search_results.html","Results","width=500,height=400,left=75,top=250,toolbar=0,status=0,");
 
         new_window.onload = function() {
             console.log(new_window.document.title);
@@ -42,7 +42,7 @@ document.addEventListener('blur', function(e) {
             let grid_items_contents = new_window.document.getElementsByClassName('grid_item_content');
             counter = 0;
             for (let hit of query_hits_arr) {
-                grid_items_contents[counter].textContent = "Item: " + hit['fields']["item_name"];
+                grid_items_contents[counter].textContent = hit['fields']["item_name"];
                 grid_items_contents[counter+1].textContent = "Calories: " + hit['fields']["nf_calories"];
                 counter += 2; // every other grid_item_content is the item's name 
             }
