@@ -13,8 +13,6 @@ document.addEventListener('blur', function(e) {
     // TODO - check if the input is valid (not empty string, not malicious)
 
     // API fetch based on content of text-input
-
-    // change this URL to match new API subscription?? NEEDS DEBUGGING
     const url = `https://nutritionix-api.p.rapidapi.com/v1_1/search/${query_phrase}?fields=item_name,nf_calories`;
     fetch(url, {
         "method": "GET",
