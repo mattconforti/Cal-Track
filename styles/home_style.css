@@ -97,5 +97,6 @@ input[type="text"]:focus {
 
 .grid_item_content {
     float: none;
+    font-family: 'Roboto', sans-serif;
     font-size: .75em;
 }
