@@ -51,6 +51,11 @@ document.addEventListener('blur', function(e) {
             new_window.document.addEventListener('click', function(eventObj) {
                 if (!eventObj.target.matches('.grid_item')) return;
                 console.log("GRID ITEM CLICKED!!");
+
+                const target_grid_item = eventObj.target;
+                const target_grid_item_content = target_grid_item.textContent;
+                const calories_to_output = target_grid_item_content.split("Calories: ")[1].trim();
+                console.log(calories_to_output);
             }, false);
         };
 
