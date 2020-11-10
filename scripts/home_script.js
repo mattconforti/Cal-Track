@@ -47,7 +47,11 @@ document.addEventListener('blur', function(e) {
                 counter += 2; // every other grid_item_content is the item's name 
             }
 
-            // can i have an event listener here? for grid item click??
+            // GRID ITEM CLICK EVENT
+            new_window.document.addEventListener('click', function(eventObj) {
+                if (!eventObj.target.matches('.grid_item')) return;
+                console.log("GRID ITEM CLICKED!!");
+            }, false);
         };
 
         // TODO - close the window after selection is made and output
@@ -72,11 +76,6 @@ document.addEventListener('blur', function(e) {
         console.log(err);
     });
 }, true);
-
-// GRID ITEM CLICK EVENT
-// make an event listener that listens 
-// to the new window for grid item click
-// if new window is present. if not, pass
 
 // ADD BUTTON CLICK EVENT
 document.addEventListener('click', function(evnt) {
