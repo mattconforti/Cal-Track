@@ -64,13 +64,12 @@ document.addEventListener('blur', function(e) {
                 console.log("Outputting to: " + output_id);
         
                 // TODO - green checkmark animation here if output is ready (valid input) and found search results
-                
+
                 let calorie_amt_heading = document.getElementById(output_id);
                 calorie_amt_heading.textContent = int_calories_to_out + " Calories";
-                
+                new_window.close();
             }, false);
         };
-        // TODO - close the window after selection is made and output
     })
     .catch(err => {
         console.log(err);
