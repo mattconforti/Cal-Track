@@ -55,27 +55,22 @@ document.addEventListener('blur', function(e) {
                 const target_grid_item = eventObj.target;
                 const target_grid_item_content = target_grid_item.textContent;
                 const calories_to_output = target_grid_item_content.split("Calories: ")[1].trim();
-                console.log(calories_to_output);
+                const int_calories_to_out = parseInt(calories_to_output);
+
+                // output calorie amount to correct heading
+                console.log("Outputting: " + int_calories_to_out + " Calories");
+                // use id_match_list to get the correct id for output
+                const output_id = id_match_list[1]+ "h3" + id_match_list[0];
+                console.log("Outputting to: " + output_id);
+        
+                // TODO - green checkmark animation here if output is ready (valid input) and found search results
+                
+                let calorie_amt_heading = document.getElementById(output_id);
+                calorie_amt_heading.textContent = int_calories_to_out + " Calories";
+                
             }, false);
         };
-
         // TODO - close the window after selection is made and output
-
-        // get calorie amount and output
-        let cal_amt = query_hits_arr[0]['fields']["nf_calories"];
-        // round the decimal if necessary
-        if (!Number.isInteger(cal_amt)) {
-            cal_amt = Math.round(cal_amt);
-        }
-        console.log("Outputting: " + cal_amt + " Calories");
-        // use id_match_list to get the correct id for output
-        const output_id = id_match_list[1]+ "h3" + id_match_list[0];
-        console.log("Outputting to: " + output_id);
-        
-        // TODO - green checkmark animation here if output is ready (valid input) and found search results
-        // output to correct heading
-        let calorie_amt_heading = document.getElementById(output_id);
-        calorie_amt_heading.textContent = cal_amt + " Calories";
     })
     .catch(err => {
         console.log(err);
