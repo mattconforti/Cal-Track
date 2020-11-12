@@ -30,46 +30,84 @@ document.addEventListener('blur', function(e) {
         const query_hits_count = query_hits_arr.length;
         console.log(query_hits_arr);
 
-        // see which match we want
+        // green checkmark animation here to show valid input and successful API query
+        // TODO - needs resizing. wayyy too big
+        var start = 100;
+        var mid = 145;
+        var end = 250;
+        var width = 22;
+        var leftX = start;
+        var leftY = start;
+        var rightX = mid - (width / 2.7);
+        var rightY = mid + (width / 2.7);
+        var animationSpeed = 10;
+
+        var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+        ctx.lineWidth = width;
+        ctx.strokeStyle = 'rgba(0, 150, 0, 1)';
+
+        for (i = start; i < mid; i++) {
+            var drawLeft = window.setTimeout(function () {
+                ctx.beginPath();
+                ctx.moveTo(start, start);
+                ctx.lineTo(leftX, leftY);
+                ctx.stroke();
+                leftX++;
+                leftY++;
+            }, 1 + (i * animationSpeed) / 3);
+        }
+
+        for (i = mid; i < end; i++) {
+            var drawRight = window.setTimeout(function () {
+                ctx.beginPath();
+                ctx.moveTo(leftX, leftY);
+                ctx.lineTo(rightX, rightY);
+                ctx.stroke();
+                rightX++;
+                rightY--;
+            }, 1 + (i * animationSpeed) / 3);
+        }
+
+        // see which 'hit' we want
 
         // open new window here to have user select correct item
-        var new_window = window.open("html/search_results.html","Results","width=500,height=400,left=75,top=250,toolbar=0,status=0,");
+        setTimeout(function() {
+            var new_window = window.open("html/search_results.html","Results","width=500,height=400,left=75,top=250,toolbar=0,status=0,");
 
-        new_window.onload = function() {
-            console.log(new_window.document.title);
-
-            // get results-page grid items' contents and update it
-            let grid_items_contents = new_window.document.getElementsByClassName('grid_item_content');
-            counter = 0;
-            for (let hit of query_hits_arr) {
-                grid_items_contents[counter].textContent = hit['fields']["item_name"];
-                grid_items_contents[counter+1].textContent = "Calories: " + hit['fields']["nf_calories"];
-                counter += 2; // every other grid_item_content is the item's name 
-            }
-
-            // GRID ITEM CLICK EVENT
-            new_window.document.addEventListener('click', function(eventObj) {
-                if (!eventObj.target.matches('.grid_item')) return;
-                console.log("GRID ITEM CLICKED!!");
-
-                const target_grid_item = eventObj.target;
-                const target_grid_item_content = target_grid_item.textContent;
-                const calories_to_output = target_grid_item_content.split("Calories: ")[1].trim();
-                const int_calories_to_out = parseInt(calories_to_output);
-
-                // output calorie amount to correct heading
-                console.log("Outputting: " + int_calories_to_out + " Calories");
-                // use id_match_list to get the correct id for output
-                const output_id = id_match_list[1]+ "h3" + id_match_list[0];
-                console.log("Outputting to: " + output_id);
-        
-                // TODO - green checkmark animation here if output is ready (valid input) and found search results
-
-                let calorie_amt_heading = document.getElementById(output_id);
-                calorie_amt_heading.textContent = int_calories_to_out + " Calories";
-                new_window.close();
-            }, false);
-        };
+            new_window.onload = function() {
+                console.log(new_window.document.title);
+    
+                // get results-page grid items' contents and update it
+                let grid_items_contents = new_window.document.getElementsByClassName('grid_item_content');
+                counter = 0;
+                for (let hit of query_hits_arr) {
+                    grid_items_contents[counter].textContent = hit['fields']["item_name"];
+                    grid_items_contents[counter+1].textContent = "Calories: " + hit['fields']["nf_calories"];
+                    counter += 2; // every other grid_item_content is the item's name 
+                }
+    
+                // GRID ITEM CLICK EVENT
+                new_window.document.addEventListener('click', function(eventObj) {
+                    if (!eventObj.target.matches('.grid_item')) return;
+                    console.log("GRID ITEM CLICKED!!");
+    
+                    const target_grid_item = eventObj.target;
+                    const target_grid_item_content = target_grid_item.textContent;
+                    const calories_to_output = target_grid_item_content.split("Calories: ")[1].trim();
+                    const int_calories_to_out = parseInt(calories_to_output);
+    
+                    // output calorie amount to correct heading
+                    console.log("Outputting: " + int_calories_to_out + " Calories");
+                    // use id_match_list to get the correct id for output
+                    const output_id = id_match_list[1]+ "h3" + id_match_list[0];
+                    console.log("Outputting to: " + output_id);
+    
+                    let calorie_amt_heading = document.getElementById(output_id);
+                    calorie_amt_heading.textContent = int_calories_to_out + " Calories";
+                    new_window.close();
+                }, false);
+            };
+        }, 2000);
     })
     .catch(err => {
         console.log(err);
