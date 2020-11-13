@@ -31,16 +31,16 @@ document.addEventListener('blur', function(e) {
         console.log(query_hits_arr);
 
         // green checkmark animation here to show valid input and successful API query
-        // TODO - needs resizing. wayyy too big
-        var start = 100;
-        var mid = 145;
-        var end = 250;
-        var width = 22;
+        // TODO - fix these numbers... decimals mess up stroke before mid
+        var start = 25; // 100
+        var mid = 36;   // 145
+        var end = 62;   // 250
+        var width = 5;  // 22
         var leftX = start;
         var leftY = start;
         var rightX = mid - (width / 2.7);
         var rightY = mid + (width / 2.7);
-        var animationSpeed = 10;
+        var animationSpeed = 15;
 
         var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
         ctx.lineWidth = width;
