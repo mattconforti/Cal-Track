@@ -66,6 +66,10 @@ input[type="text"]:focus {
     outline-color: green;
 }
 
+canvas {
+    margin-top: -22px;
+}
+
 .button_bar {
     float: left;
     width: 100%;
