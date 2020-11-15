@@ -40,10 +40,11 @@ document.addEventListener('blur', function(e) {
         var leftY = start;
         var rightX = mid - (width / 2.7);
         var rightY = mid + (width / 2.7);
-        var animationSpeed = 20;
+        var animationSpeed = 35;
 
-        // TODO - change to make it getElementById and match output id
-        var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+        const canvasId = id_match_list[0] + "c" + id_match_list[1];
+        console.log("Drawing on canvas " + canvasId);
+        var ctx = document.getElementById(canvasId).getContext('2d');
         ctx.lineWidth = width;
         ctx.strokeStyle = 'rgba(0, 150, 0, 1)';
 
@@ -108,7 +109,7 @@ document.addEventListener('blur', function(e) {
                     new_window.close();
                 }, false);
             };
-        }, 2000);
+        }, 1500);
     })
     .catch(err => {
         console.log(err);
