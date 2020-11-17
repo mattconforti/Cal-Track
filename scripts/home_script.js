@@ -106,6 +106,9 @@ document.addEventListener('blur', function(e) {
     
                     let calorie_amt_heading = document.getElementById(output_id);
                     calorie_amt_heading.textContent = int_calories_to_out + " Calories";
+
+                    // TODO - replace user input with more specific item name?
+
                     new_window.close();
                 }, false);
             };
@@ -130,7 +133,7 @@ document.addEventListener('click', function(ev) {
     const target_clear_button_id = target_clear_button.id;
     const target_clear_num = target_clear_button_id.split('_')[2];
 
-    // TODO - clear all calorie labels associated with button
+    // clear all text and calorie labels associated with button
     let input_field_list = document.getElementsByClassName('food_input');
     for (let el of input_field_list) {
         // if the element is associated with this specific clear button
@@ -154,6 +157,7 @@ document.addEventListener('click', function(ev) {
             h2.textContent = "";
         }
     }
+// TODO - FIX ISSUE WHERE TEXT-INPUT BLUR EVENT DOESNT TRIGGER AFTER CLEAR
 }, false);
 
 // CALC BUTTON CLICK
