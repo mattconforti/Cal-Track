@@ -192,7 +192,7 @@ document.addEventListener('click', function(event) {
     // (grows big then small or red circle around)
 
     // ^^ quickfix - red circle around using boxShadow
-    // NEED BOX-SHADOW TO HAVE MORE PADDING BTW TEXT
+    // TODO - NEED BOX-SHADOW TO HAVE MORE PADDING BTW TEXT
 
     setTimeout(function() {
         output_heading.style.boxShadow = "0 0 0 2pt red";
